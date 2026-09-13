@@ -1,0 +1,6 @@
+{
+  "name": "SOMYA AI",
+  "description": "Futuristic desktop personal AI assistant featuring an interactive dynamic Core, natural bilingual voice interaction, persistent memory, and Gemini intelligence.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User profile information from Google Auth",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "UserSettings": {
+      "title": "User Settings",
+      "description": "SOMYA AI settings and preferences",
+      "type": "object",
+      "properties": {
+        "voice": { "type": "object" },
+        "language": { "type": "object" },
+        "memory": { "type": "object" },
+        "theme": { "type": "string" }
+      }
+    },
+    "Memory": {
+      "title": "Memory Record",
+      "description": "User persistent memory entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "importance": { "type": "number" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile document"
+    },
+    "/users/{userId}/settings/config": {
+      "schema": { "$ref": "#/entities/UserSettings" },
+      "description": "User settings document"
+    },
+    "/users/{userId}/memories/{memoryId}": {
+      "schema": { "$ref": "#/entities/Memory" },
+      "description": "User memories subcollection"
+    }
+  }
+}
